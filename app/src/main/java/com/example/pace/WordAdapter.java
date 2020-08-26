@@ -15,6 +15,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 
+import static com.example.pace.Word.NO_IMAGE_PROVIDED;
+// TODO this does not offer view caching this is why Recycler view is quite effective.
 public class WordAdapter extends ArrayAdapter<Word> {
 
     //Resource ID for the background color for this list of words
@@ -30,6 +32,7 @@ public class WordAdapter extends ArrayAdapter<Word> {
         mColorResourceId = colorResourceId;
     }
 
+    @NonNull
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 
@@ -57,9 +60,16 @@ public class WordAdapter extends ArrayAdapter<Word> {
             ///Find the ImageView in the list_item.xml layout with the ID image.
             ImageView imageView = (ImageView) listItemView.findViewById(R.id.image);
             //set the ImageView to the image resource specified in the current word.
-            imageView.setImageResource(currentWord.getImageResourceId());
 
-            if(currentWord.hasImage()){
+            int res = currentWord.getImageResourceId();
+
+            // TODO only sets image if valid image exists
+            if (res != -1) {
+                imageView.setImageResource(currentWord.getImageResourceId());
+            }
+
+
+            if (currentWord.hasImage()) {
                 imageView.setImageResource(currentWord.getImageResourceId());
 
                 //Make sure the view is visible

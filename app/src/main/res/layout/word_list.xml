@@ -1,11 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?><!--Avoid using list view if you do not have proper list view implementation or possibly-->
+<!--Too data that could span over your first page. use RecyclerView better performance -->
 <ListView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/list"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical" />
 
-    android:orientation="vertical"
-    android:id="@+id/list"
-    />
+    <!--TODO If you can avoid extra work run very fast-->
+    <!--You are storing circles of different colors while you could have used-->
+    <!--A singe drawable and change it's color depending on where it is.-->
 

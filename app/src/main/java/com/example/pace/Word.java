@@ -6,6 +6,8 @@ public class Word {
 
     private String mDefaultTranslation;
     private String mMiwokTranslation;
+    // This does not have validation on line (WordAdapter.java:60)
+    // When providing such states be sure to validate them before use.
     private int mImageResourceId = NO_IMAGE_PROVIDED;
     private static final int NO_IMAGE_PROVIDED = -1;
     private int mAudioResourceId;
